@@ -1,8 +1,8 @@
 bl_info = {
     "name": "Solidworks GLTF Importer",
     "author": "ChatGPT",
-    "version": (2, 4, 0),
-    "blender": (5, 0, 0),
+    "version": (2, 4, 1),
+    "blender": (5, 0, 1),
     "location": "View3D > N Panel > Solidworks Importer",
     "description": "Robust SolidWorks GLTF/GLB import, linking, organisation, and material pipeline (with optional updater).",
     "category": "Import-Export",
