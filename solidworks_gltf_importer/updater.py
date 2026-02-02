@@ -8,24 +8,6 @@ from bpy.types import Operator, AddonPreferences
 from bpy.props import StringProperty, BoolProperty
 from pathlib import Path
 
-# -----------------------------------------------------------------------------
-# HOW IT WORKS (simple + robust)
-# - You publish a small JSON "manifest" at a URL (eg GitHub raw).
-# - The manifest declares the latest version and a direct ZIP download URL.
-# - The addon checks the manifest, compares versions, and can download/install.
-#
-# Manifest example:
-# {
-#   "version": [2, 4, 1],
-#   "download_url": "https://.../Solidworks_GLTF_Importer.zip",
-#   "notes": "Bug fixes"
-# }
-#
-# NOTE:
-# - Blender cannot hot-reload an addon cleanly after overwriting files.
-# - After install, we prompt the user to restart Blender (recommended).
-# -----------------------------------------------------------------------------
-
 ADDON_PACKAGE = __package__  # "solidworks_gltf_importer"
 ADDON_MODULE_NAME = ADDON_PACKAGE.split(".")[0] if ADDON_PACKAGE else "solidworks_gltf_importer"
 
@@ -121,7 +103,6 @@ class SWGI_AddonPrefs(AddonPreferences):
         description="Check for updates when Blender starts (once per session)",
         default=False,
     )
-    _session_checked: BoolProperty(default=False, options={'HIDDEN'})
 
     def draw(self, context):
         layout = self.layout
